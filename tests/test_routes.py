@@ -145,7 +145,7 @@ class TestAccountService(TestCase):
 
         data = response.get_json()
         # self.assertEqual(data["name"], account.name)
-        self._assert_two_accounts_are_identical((data, account)
+        self._assert_two_accounts_are_identical(data, account)
 
     def test_account_not_found(self):
         """It should not Read an Account that is not found"""
