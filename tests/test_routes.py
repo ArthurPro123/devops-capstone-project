@@ -70,6 +70,13 @@ class TestAccountService(TestCase):
             accounts.append(account)
         return accounts
 
+    def _assert_two_accounts_are_identical(self, a, b):
+        self.assertEqual(a["name"], b.name)
+        self.assertEqual(a["email"], b.email)
+        self.assertEqual(a["address"], b.address)
+        self.assertEqual(a["phone_number"], b.phone_number)
+        self.assertEqual(a["date_joined"], str(b.date_joined))
+
     ######################################################################
     #  A C C O U N T   T E S T   C A S E S
     ######################################################################
@@ -124,3 +131,37 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
     # ADD YOUR TEST CASES HERE ...
+
+    def test_get_account(self):
+        """Reading an account should show the information of a specified account"""
+
+        account = self._create_accounts(1)[0]
+
+        response = self.client.get(
+            f"{BASE_URL}/{account.id}", content_type="application/json"
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.get_json()
+        # self.assertEqual(data["name"], account.name)
+        self._assert_two_accounts_are_identical((data, account)
+
+    def test_account_not_found(self):
+        """It should not Read an Account that is not found"""
+
+        response = self.client.get(f"{BASE_URL}/0")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+
+
+
+
+
+
+
+
+
+
+
+
