@@ -171,7 +171,9 @@ class TestAccountService(TestCase):
         updated_account = response.get_json()
         self.assertEqual(updated_account["name"], "Something Known")
 
-
+    def test_account_not_found_when_updating_account(self):
+        test_account = AccountFactory()
+        response = self.client.put(f"{BASE_URL}/0", json=test_account.serialize())
 
 
 
