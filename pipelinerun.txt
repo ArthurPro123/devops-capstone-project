@@ -501,7 +501,6 @@
 [deploy : oc] service/accounts configured
 [deploy : oc] NAME                        READY   STATUS              RESTARTS         AGE
 [deploy : oc] accounts-67bdd8dcf5-sk9kr   0/1     ContainerCreating   0                1s
-[deploy : oc] accounts-6d6f5f7bdc-7624d   0/1     CrashLoopBackOff    80 (98s ago)     6h34m
-[deploy : oc] accounts-6d6f5f7bdc-h4zmj   0/1     CrashLoopBackOff    80 (2m24s ago)   6h34m
-[deploy : oc] accounts-6d6f5f7bdc-m9g2z   0/1     CrashLoopBackOff    80 (66s ago)     6h34m
-
+[deploy : oc] accounts-57d9bf7ff6-7t6n5   1/1     Running             0          82m
+[deploy : oc] accounts-57d9bf7ff6-q56d2   1/1     Running             0          82m
+[deploy : oc] accounts-57d9bf7ff6-zqmhg   1/1     Running             0          82m
