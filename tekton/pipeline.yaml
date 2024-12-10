@@ -50,3 +50,15 @@ spec:
         value: ["--count","--max-complexity=10","--max-line-length=127","--statistics"]
       runAfter:
         - clone
+
+        spec:
+  ...
+  steps:
+    - name: {place name here}
+      image: {image name here}
+      workingDir: {working path here}
+      env:
+        - name: {environment variable name here}
+          value: {value from parameters here}
+      script: |
+        {paste the script from above here}
